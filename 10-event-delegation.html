@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event delegation</title>
+  </head>
+  <body>
+    <ul id="myList">
+      <li>apple</li>
+      <li>banana</li>
+      <li>tomato</li>
+    </ul>
+
+    <script>
+      // it is a way to add an event listener once to multiple elements with
+      // support for adding extra cildren.
+
+      //we want to change background color of li when you click on any of these
+
+      const myList = document.getElementById("myList");
+      myList.addEventListener("click", (event) => {
+        console.log(event);
+        const target = event.target;
+        if (target.matches("li")) {
+          event.target.style.backgroundColor = "red";
+        }
+      });
+    </script>
+  </body>
+</html>
